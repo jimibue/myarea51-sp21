@@ -5,11 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "semantic-ui-css/semantic.min.css"
 import {BrowserRouter} from 'react-router-dom'
+import AuthProvider from './providers/AuthProvider';
+import {initMiddleware} from 'devise-axios'
+
+// managing swapping our tokens and storing to local storage and sending them in our axios calls
+initMiddleware()
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <AuthProvider>
+   <BrowserRouter>
+     <App />
+   </BrowserRouter>
+  </AuthProvider>,
   document.getElementById('root')
 );
 
