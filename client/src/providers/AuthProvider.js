@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React from 'react'
 
 // createContext = > return Provider and consumer
@@ -8,13 +9,30 @@ export const AuthConsumer = AuthContext.Consumer
 
 class AuthProvider extends React.Component{
     
-    // const [user, setUser] = useState( user:{name:'Tony', age:21})
-    state = { user: {name:'Tony', age:21}, x:'yo'}
+    state = { user: null}
+
+    // .then.catch syntax
+    handleRegister = (user, history) =>{
+       axios.post('/api/auth', user).then(res =>{
+          console.log(res)
+          this.setState({user: res.data.data})
+       }).catch(err=>{
+          // do something with err
+          console.log(err)
+          console.log(err.response.data)
+          alert('error in register')
+       })
+
+
+    }
+
+    // handleLogin=
+    // handleLogout =?
   
     render(){
         return(
         // <AuthContext.Provider value={this.state}>
-        <AuthContext.Provider value={{...this.state, someFunc: ()=> alert('yo')}}>
+        <AuthContext.Provider value={{...this.state, handleRegister: this.handleRegister}}>
           {this.props.children}
         </AuthContext.Provider>
         )

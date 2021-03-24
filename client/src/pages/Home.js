@@ -7,11 +7,10 @@ const Home = () => {
     // state for component
     const [testData, setTestData] = useState(null)
     const [loading, setLoading] = useState(true)
-    const  {someFunc} = useContext(AuthContext)
+    const  {} = useContext(AuthContext)
     
     // mount
     useEffect(()=>{
-        someFunc()
         getData()
     },[])
 
