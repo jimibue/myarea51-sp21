@@ -8,6 +8,7 @@ import About from './pages/About';
 import { PRIMARY_COLOR } from './styles';
 import ComponentDemo from './pages/ComponentDemo';
 import Register from './pages/Register';
+import Login from './pages/Login';
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route exact path='/' component={Home} />
         <Route exact path='/about' component={About} />
         <Route exact path='/register' component={Register} />
+        <Route exact path='/login' component={Login} />
         <Route exact path='/componentDemo' component={ComponentDemo} />
         
       </Switch>

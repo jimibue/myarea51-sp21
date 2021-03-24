@@ -43,17 +43,16 @@ import { AuthConsumer } from '../providers/AuthProvider'
 class NavBar extends React.Component {
 
   getRightMenu = ()=>{
-    const { auth, location } = this.props
-    const { user } = auth
+    const { auth, location, history } = this.props
+    const { user, handleLogout } = auth
 
     if(user){
       return(
         <Menu.Menu position='right'>
-          <Link to='/'>
-            <Menu.Item active={location.pathname == '/'} >
+      
+            <Menu.Item onClick={()=>handleLogout(history) }active={location.pathname == '/'} >
               Logout
               </Menu.Item >
-                </Link>
         </Menu.Menu>
       )
     } else {
@@ -62,6 +61,11 @@ class NavBar extends React.Component {
          <Link to='/register'>
             <Menu.Item active={location.pathname == '/register'} >
               Register
+            </Menu.Item >
+          </Link>
+          <Link to='/login'>
+            <Menu.Item active={location.pathname == '/login'} >
+              Login
             </Menu.Item >
           </Link>
         </Menu.Menu>

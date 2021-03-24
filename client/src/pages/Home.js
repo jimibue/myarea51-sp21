@@ -7,7 +7,7 @@ const Home = () => {
     // state for component
     const [testData, setTestData] = useState(null)
     const [loading, setLoading] = useState(true)
-    const  {} = useContext(AuthContext)
+    const  { user } = useContext(AuthContext)
     
     // mount
     useEffect(()=>{
@@ -26,10 +26,13 @@ const Home = () => {
         
     }
     if(loading) return <p>Loading</p>
+    if(!user) return <p>need to login/register</p>
     return(
         <div>
-            <h1>Home</h1>
+            <h1>Welcome Home {user.email}</h1>
             {testData && testData.dataHere}
+
+
         </div>
     )
 }

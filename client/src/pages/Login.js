@@ -3,22 +3,21 @@ import { Form, Header } from 'semantic-ui-react'
 import { AuthContext } from '../providers/AuthProvider'
 import {useHistory} from 'react-router-dom'
 
-const Register = (props)=> {
-    const {handleRegister} = useContext(AuthContext)
+const Login = (props)=> {
+    const {handleLogin} = useContext(AuthContext)
     const [email, setEmail] = useState('test@test.com')
     const [password, setPassword] = useState('123456')
-    const [passwordConfirmation, setPasswordConfirmation] = useState('123456')
     const history = useHistory()
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        console.log({email, password, passwordConfirmation})
-        handleRegister({email, password, passwordConfirmation}, history)
+        console.log({email, password})
+        handleLogin({email, password}, history)
     } 
     return (
 
         <>
-        <Header>Register</Header>
+        <Header>Login</Header>
         <Form onSubmit={handleSubmit}>
           <Form.Input 
             autoFocus
@@ -33,16 +32,11 @@ const Register = (props)=> {
             value={password}
             onChange={(e)=> setPassword(e.target.value)}
           />
-        <Form.Input 
-            required
-            label='confirm password'
-            value={passwordConfirmation}
-            onChange={(e)=> setPasswordConfirmation(e.target.value)}
-          />
-          <Form.Button>register</Form.Button>
+
+          <Form.Button>login</Form.Button>
         </Form>
         </>
     )
 }
 
-export default Register
+export default Login
