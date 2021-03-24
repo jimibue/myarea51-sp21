@@ -1,14 +1,17 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import axios from 'axios'
+import { AuthContext } from '../providers/AuthProvider'
 
 // functional component
 const Home = () => {
     // state for component
     const [testData, setTestData] = useState(null)
     const [loading, setLoading] = useState(true)
+    const  {someFunc} = useContext(AuthContext)
     
     // mount
     useEffect(()=>{
+        someFunc()
         getData()
     },[])
 
