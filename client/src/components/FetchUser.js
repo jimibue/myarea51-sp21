@@ -12,7 +12,6 @@ const FetchUser = (props) => {
     })
 
     const checkUserAuthenticated = async () => {
-
         // do I have User or is there not a token in local
         if( user || !localStorage.getItem('access-token')){
            setLoaded(true)
