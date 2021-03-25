@@ -9,22 +9,27 @@ import { PRIMARY_COLOR } from './styles';
 import ComponentDemo from './pages/ComponentDemo';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import FetchUser from './components/FetchUser';
+import ProtectedRoute from './components/ProtectRoute';
 
 function App() {
 
   return (
     <>
     <NavBar />
-    <Container>
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/about' component={About} />
-        <Route exact path='/register' component={Register} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/componentDemo' component={ComponentDemo} />
-        
-      </Switch>
-      </Container>
+    <FetchUser>
+      <Container>
+        <Switch>
+          <ProtectedRoute exact path='/' component={Home} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/login' component={Login} />
+          {/* <Route exact path='/demo' render={(props) => <p>route using render</p>} /> */}
+          <Route exact path='/componentDemo' component={ComponentDemo} />
+          
+        </Switch>
+        </Container>
+      </FetchUser>
    </>
   );
 }

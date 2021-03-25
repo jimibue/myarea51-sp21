@@ -55,7 +55,9 @@ class AuthProvider extends React.Component{
             {...this.state, 
                 handleRegister: this.handleRegister, 
                 handleLogout: this.handleLogout,
-                handleLogin:this.handleLogin
+                handleLogin:this.handleLogin,
+                authenticated: this.state.user !== null,
+                setUser: (user)=> this.setState({user:user})
             }
         }>
           {this.props.children}
