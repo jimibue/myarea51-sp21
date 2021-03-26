@@ -28,9 +28,15 @@ const Home = () => {
         
     }
 
-    const upVote = (id) =>{
-        // going to axios call
-        removeCat(id)
+    const upVote = async (id) =>{
+        try {
+            let res = await axios.put(`/api/cats/${id}`)
+            console.log(res)
+            removeCat(id)
+        }
+        catch(err){
+            alert('update failed')
+        }
     }
 
 
@@ -46,14 +52,13 @@ const Home = () => {
  
     return(
         <div>
-            <h1>Welcome Home {user.email}</h1>
-            <div>
+          <Link to='/myCats'>View Liked Cats</Link>
           <br />
           <Header as='h1'>Cat Tinder</Header>
           <br />
           <Card key={cat.id}>
+            <Image src={cat.avatar}  />
             <Card.Content>
-            <Image src={cat.avatar} />
               <Card.Header>
                 { cat.name }
               </Card.Header>
@@ -78,7 +83,6 @@ const Home = () => {
               My Cats
             </Button>
           </Link>
-        </div>
         </div>
     )
 }

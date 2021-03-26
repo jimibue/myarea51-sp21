@@ -11,6 +11,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import FetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectRoute';
+import MyCats from './pages/MyCats';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <Container>
         <Switch>
           <ProtectedRoute exact path='/' component={Home} />
+          <ProtectedRoute exact path='/myCats' component={MyCats} />
           <Route exact path='/about' component={About} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/login' component={Login} />

@@ -10,7 +10,7 @@ Cat.destroy_all
     name = Faker::Creature::Cat.name
     breed = Faker::Creature::Cat.breed
     registry = Faker::Creature::Cat.registry
-    avatar = Faker::Avatar.image(slug: name, size: '50x100', format: 'png', set: 'set4')
+    avatar = Faker::Avatar.image(slug: name, size: '150x150', format: 'png', set: 'set4')
     Cat.create(name: name, breed: breed, registry: registry, avatar: avatar)
   end
   
