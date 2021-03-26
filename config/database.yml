@@ -83,5 +83,4 @@ production:
   <<: *default
   database: myarea51_sp21_production
   username: myarea51_sp21
-  password: <%= ENV['cat_tinder_sp21_DATABASE_PASSWORD'] %>
-\
+  password: <%= ENV['myarea51_sp21_DATABASE_PASSWORD'] %>

@@ -2,7 +2,8 @@
 
 class User < ActiveRecord::Base
   serialize :liked_cats, Array
-  has_many :posts
+  has_many :posts, dependent: :destroy
+  has_many :tweets, dependent: :destroy
 
   extend Devise::Models
   # Include default devise modules. Others available are:

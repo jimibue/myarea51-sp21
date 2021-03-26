@@ -11,8 +11,9 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import FetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectRoute';
-import MyCats from './pages/MyCats';
 import RegisterUX from './pages/RegisterUX';
+import UserPosts from './pages/UserPosts';
+import Post from './pages/Post';
 
 function App() {
 
@@ -22,8 +23,9 @@ function App() {
     <FetchUser>
       <Container>
         <Switch>
-          <ProtectedRoute exact path='/' component={Home} />
-          <ProtectedRoute exact path='/myCats' component={MyCats} />
+          <ProtectedRoute exact path='/' component={UserPosts} />
+          <ProtectedRoute exact path='/posts/:id' component={Post} />
+          
           <Route exact path='/about' component={About} />
           {/* <Route exact path='/register' component={Register} /> */}
           <Route exact path='/register' component={RegisterUX} />
