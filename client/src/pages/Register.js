@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
 import { Form, Header } from 'semantic-ui-react'
 import { AuthContext } from '../providers/AuthProvider'
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const Register = (props)=> {
     const {handleRegister} = useContext(AuthContext)

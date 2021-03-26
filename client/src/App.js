@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import FetchUser from './components/FetchUser';
 import ProtectedRoute from './components/ProtectRoute';
 import MyCats from './pages/MyCats';
+import RegisterUX from './pages/RegisterUX';
 
 function App() {
 
@@ -24,7 +25,8 @@ function App() {
           <ProtectedRoute exact path='/' component={Home} />
           <ProtectedRoute exact path='/myCats' component={MyCats} />
           <Route exact path='/about' component={About} />
-          <Route exact path='/register' component={Register} />
+          {/* <Route exact path='/register' component={Register} /> */}
+          <Route exact path='/register' component={RegisterUX} />
           <Route exact path='/login' component={Login} />
           {/* <Route exact path='/demo' render={(props) => <p>route using render</p>} /> */}
           <Route exact path='/componentDemo' component={ComponentDemo} />

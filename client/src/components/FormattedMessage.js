@@ -37,7 +37,7 @@ const FormattedMessage = (props) =>{
     const [hide,setHide] = useState(false)
     return(
       <Fade hide= {hide}>
-        <FormattedMessageWrapper type={type}>
+        <FormattedMessageWrapper type={type} {...props}>
            <div style={{display: 'flex', justifyContent:'space-between'}}>
              {children}
              <span onClick={()=>setHide(true)}> X Icon</span>

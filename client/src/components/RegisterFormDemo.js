@@ -5,7 +5,8 @@ import Form from "./Form";
 import FormattedMessage from "./FormattedMessage";
 import FormLabel from "./FormLabel";
 
-
+// Lots of comments describing how to use it
+// links to references
 function RegisterFormDemo() {
   const { register, handleSubmit, errors, watch } = useForm();
 

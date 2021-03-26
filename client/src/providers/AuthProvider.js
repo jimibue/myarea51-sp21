@@ -9,28 +9,26 @@ export const AuthConsumer = AuthContext.Consumer
 
 class AuthProvider extends React.Component{
     
-    state = { user: null}
+    state = { user: null, registerError: null}
 
     // .then.catch syntax
     handleRegister = (user, history) =>{
        axios.post('/api/auth', user).then(res =>{
           console.log(res)
-          this.setState({user: res.data.data})
-
+          this.setState({user: res.data.data, registerError: null })
           // navigate to home page
           history.push('/')
        }).catch(err=>{
           // do something with err
           console.log(err)
-          console.log(err.response.data)
-          alert('error in register')
+          this.setState({registerError: err.response ? err.response.data.errors : err})
        })
     }
 
     handleLogin = async(user, history) => {
         try{
           let res = await axios.post('/api/auth/sign_in', user)
-          this.setState({user:res.data.data})
+          this.setState({user:res.data.data,  registerError: null})
           history.push('/')
         } catch(err) {
             console.log(err)
