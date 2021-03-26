@@ -19,8 +19,8 @@ Cat.destroy_all
 User.destroy_all
 
 user1 = User.create(email:'user1@test.com', password:123456)
-user2 = User.create(email:'user2@test.com', password:123456)
-user3 = User.create(email:'user3@test.com', password:123456)
+user2 = User.create(email:'user2@test.com', password:123456, friends: [user1.id])
+user3 = User.create(email:'user3@test.com', password:123456, friends:  [user1.id, user2.id])
 
 10.times do 
   user1.tweets.create(title: Faker::Hipster.word  ,text:Faker::Hipster.paragraph(sentence_count: 20))
@@ -30,4 +30,4 @@ end
 
 puts "#{User.all.size} User Seeded" #
 puts "#{Tweet.all.size} Tweet Seeded" #
-puts "#{user1.tweets.all.size} user1 Tweet Seeded" #
+puts "#{user1.tweets.all.size} user1 Tweet Seeded" 

@@ -2,6 +2,7 @@
 
 class User < ActiveRecord::Base
   serialize :liked_cats, Array
+  serialize :friends, Array
   has_many :posts, dependent: :destroy
   has_many :tweets, dependent: :destroy
 
@@ -20,5 +21,10 @@ class User < ActiveRecord::Base
   def self.liked(ids)
     ids = ids.empty? ? [0] : ids
     Cat.where("id IN (?)", ids)
+  end
+
+  def get_friends_tweets()
+    ids = self.friends.empty? ? [0] : self.friends
+    Tweet.where("user_id IN (?)", ids)
   end
 end

@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   namespace :api do
     get "api_test", to:'static#api_test'
     resources :cats, only: [:index, :update]
-    resources :tweets, only: [:index]
+    resources :tweets, only: [:index, :create]
     get 'my_cats', to: 'cats#my_cats'
     get 'all_tweets', to: 'tweets#all_tweets'
+    get 'friend_tweets', to: 'tweets#friend_tweets'
   end
 end
